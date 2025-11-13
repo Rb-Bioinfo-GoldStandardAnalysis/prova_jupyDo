@@ -1,4 +1,4 @@
-FROM ghcr.io/maiolino-au/scrnaseq_tutorial
+FROM ghcr.io/maiolino-au/scrnaseq_tutorial:v0.0.1
 
 # 3. Create the standard 'jovyan' user
 # This is crucial for security and volume permission handling
