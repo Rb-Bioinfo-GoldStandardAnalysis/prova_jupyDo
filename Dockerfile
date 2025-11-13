@@ -27,7 +27,8 @@ RUN pip3 install --no-cache-dir \
     'notebook'
 
 # Set the virtual environment as the default Python path
-ENV PATH="/opt/venv/bin:$PATH"
+# ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="/usr/local/bin:/home/jovyan/.local/bin:${PATH}"
 
 RUN R -e "install.packages('IRkernel')" \
     R -e "IRkernel::installspec(user = FALSE)"
