@@ -7,8 +7,8 @@ LABEL org.opencontainers.image.description="Custom image with GEfetch2R ready fo
 # 2. Install the core Jupyter components
 # Ensure your base image has 'pip' or 'pip3' available
 RUN pip3 install --no-cache-dir \
-    'jupyterhub-singleuser==3.*' \
-    'jupyterlab==3.*' \
+    'jupyterhub==4.*' \
+    'jupyterlab==4.*' \
     'notebook'
 
 # 3. Create the standard 'jovyan' user
