@@ -26,10 +26,6 @@ RUN pip3 install --no-cache-dir \
     'jupyterlab==4.*' \
     'notebook'
 
-# Set the virtual environment as the default Python path
-# ENV PATH="/opt/venv/bin:$PATH"
-ENV PATH="/usr/local/bin:/home/jovyan/.local/bin:${PATH}"
-
 RUN R -e "install.packages('IRkernel')" \
     R -e "IRkernel::installspec(user = FALSE)"
 
@@ -39,6 +35,10 @@ RUN useradd -m jovyan
 ENV HOME=/home/jovyan
 WORKDIR $HOME
 USER jovyan
+
+# Set the virtual environment as the default Python path
+# ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="/usr/local/bin:/home/jovyan/.local/bin:${PATH}"
 
 # 4. Set the default startup command
 # This is the command JupyDo expects to launch the server.
