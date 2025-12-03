@@ -5,6 +5,9 @@ on:
       - "*"
 jobs:
   build:
+    permissions:
+      contents: read
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,7 +38,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/maiolino-au/prova_jupydo/
+          images: ghcr.io/rb-bioinfo-goldstandardanalysis/prova_jupydo/
           tags: |
             type=semver,pattern=v{{version}}
             type=raw,value=latest
@@ -46,8 +49,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/maiolino-au/prova_jupydo:latest
-            ghcr.io/maiolino-au/prova_jupydo:${{ steps.meta.outputs.version }}
+            ghcr.io/rb-bioinfo-goldstandardanalysis/prova_jupydo:latest
+            ghcr.io/rb-bioinfo-goldstandardanalysis/prova_jupydo:${{ steps.meta.outputs.version }}
           labels: ${{ steps.meta.outputs.labels }}
 
       # 🧼 Post-build cleanup to free space
